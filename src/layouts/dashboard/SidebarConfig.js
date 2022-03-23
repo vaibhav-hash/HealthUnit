@@ -16,14 +16,19 @@ const sidebarConfig = [
     path: '/dashboard/user',
     icon: getIcon('eva:people-fill')
   },
+  // {
+  //   title: 'product',
+  //   path: '/dashboard/products',
+  //   icon: getIcon('eva:shopping-bag-fill')
+  // },
+  // {
+  //   title: 'blog',
+  //   path: '/dashboard/blog',
+  //   icon: getIcon('eva:file-text-fill')
+  // },
   {
-    title: 'product',
-    path: '/dashboard/products',
-    icon: getIcon('eva:shopping-bag-fill')
-  },
-  {
-    title: 'blog',
-    path: '/dashboard/blog',
+    title: 'Diseases',
+    path: '/dashboard/disease',
     icon: getIcon('eva:file-text-fill')
   },
   {
