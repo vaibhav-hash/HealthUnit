@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 // icons
 import { Icon } from '@iconify/react';
 // @mui
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Box } from '@mui/material';
 
 // ----------------------------------------------------------------------

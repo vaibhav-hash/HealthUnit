@@ -1,9 +1,9 @@
 // ----------------------------------------------------------------------
 
 const account = {
-  displayName: 'Jaydon Frankie',
-  email: 'demo@minimals.cc',
-  photoURL: '/static/mock-images/avatars/avatar_default.jpg'
+  displayName: 'Kim Jong',
+  email: 'KimJongGreat@gmail.com',
+  photoURL: 'https://picsum.photos/id/237/200/300'
 };
 
 export default account;

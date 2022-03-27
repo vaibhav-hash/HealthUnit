@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { alpha, styled } from '@mui/material/styles';
 import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 // components
+// import FavoriteIcon from '@mui/icons-material/Favorite';
 import Iconify from '../../components/Iconify';
 //
 import Searchbar from './Searchbar';
 import AccountPopover from './AccountPopover';
 import LanguagePopover from './LanguagePopover';
 import NotificationsPopover from './NotificationsPopover';
-
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTH = 280;
@@ -49,6 +49,7 @@ export default function DashboardNavbar({ onOpenSidebar }) {
           sx={{ mr: 1, color: 'text.primary', display: { lg: 'none' } }}
         >
           <Iconify icon="eva:menu-2-fill" />
+          {/* <FavoriteIcon/> */}
         </IconButton>
 
         <Searchbar />
