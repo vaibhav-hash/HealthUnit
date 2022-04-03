@@ -37,10 +37,12 @@ export default function DiseasePrediction() {
     const { register, handleSubmit } = useForm();
     const [result, setResult] = useState("");
     const [resultPercentage, setResultPercentage] = useState("");
+    const [resultSpecialist, setResultSpecialist] = useState("");
 
     const onSubmit = (data) => {
         setResult("Loading ...");
         setResultPercentage("");
+        setResultSpecialist("");
         axios.post(
             // "http://localhost:5000/disease_prediction_using_symptoms",
             "https://medi-vhvn.herokuapp.com/disease_prediction_using_symptoms",
@@ -48,7 +50,7 @@ export default function DiseasePrediction() {
         ).then(function (response) {
             console.log(response);
             myArray = response.data.split("@");
-            setMedicines(myArray[2].split(", "));
+            setMedicines(myArray[3].split(", "));
             console.log("these are medicines : " + medicines.length);
             // temp edits
             let v = []
@@ -61,6 +63,7 @@ export default function DiseasePrediction() {
             console.log(v);
             setResult(JSON.stringify(myArray[0]));
             setResultPercentage(JSON.stringify(myArray[1]));
+            setResultSpecialist(JSON.stringify(myArray[2]));
         })
             .catch(function (error) {
                 console.log(error);
@@ -84,6 +87,7 @@ export default function DiseasePrediction() {
                 </Button>
                 <h1>{result}</h1>
                 <h2>{resultPercentage}</h2>
+                <h2>{resultSpecialist}</h2>
                 <Prescription rows={rows} medicines={medicines} />
             </Box>
         </div>
