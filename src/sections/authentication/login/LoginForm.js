@@ -2,6 +2,8 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { useFormik, Form, FormikProvider } from 'formik';
+
+import axios from 'axios';
 // material
 import {
   Link,
@@ -34,8 +36,18 @@ export default function LoginForm() {
       remember: true
     },
     validationSchema: LoginSchema,
-    onSubmit: () => {
-      navigate('/dashboard', { replace: true });
+    onSubmit: (values) => {
+      // console.log(values);
+      // console.log(password);
+      axios.post(
+          "http://localhost:5000/login",
+          { data: values }
+        ).then(function(response){
+          console.log(response);
+      }).catch(function(error){
+          console.log(error)
+      });
+      navigate('/dashboard/app', { replace: true });
     }
   });
 

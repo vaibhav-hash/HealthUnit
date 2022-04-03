@@ -5,10 +5,20 @@ import { useNavigate } from 'react-router-dom';
 // material
 import { Stack, TextField, IconButton, InputAdornment } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import axios from 'axios';
 // component
 import Iconify from '../../../components/Iconify';
 
 // ----------------------------------------------------------------------
+
+// mobile
+// patient_id
+// emerg. cont.
+// age
+// weight
+// gender
+// blood group
+
 
 export default function RegisterForm() {
   const navigate = useNavigate();
@@ -32,8 +42,16 @@ export default function RegisterForm() {
       password: ''
     },
     validationSchema: RegisterSchema,
-    onSubmit: () => {
-      navigate('/dashboard', { replace: true });
+    onSubmit: (values) => {
+      axios.post(
+          "http://localhost:5000/register",
+          { data: values }
+        ).then(function(response){
+          console.log(response);
+      }).catch(function(error){
+          console.log(error)
+      });
+      navigate('/dashboard/app', { replace: true });
     }
   });
 
