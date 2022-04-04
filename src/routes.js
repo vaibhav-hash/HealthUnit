@@ -24,7 +24,7 @@ export default function Router() {
         { path: 'user', element: <User /> },
         { path: 'products', element: <Products /> },
         { path: 'blog', element: <Blog /> },
-        { path: 'disease', element: <Disease /> },
+        { path: 'disease', element: <Disease /> }
       ]
     },
     {

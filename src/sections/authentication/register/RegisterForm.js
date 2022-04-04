@@ -44,7 +44,7 @@ export default function RegisterForm() {
     validationSchema: RegisterSchema,
     onSubmit: (values) => {
       axios.post(
-          "http://localhost:5000/register",
+          "https://medi-vhvn.herokuapp.com/register",
           { data: values }
         ).then(function(response){
           console.log(response);

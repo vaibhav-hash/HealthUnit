@@ -69,7 +69,6 @@ export default function DiseasePrediction() {
                 console.log(error);
             });
     };
-
     return (
         <div>
             <Box component="form" noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>

@@ -40,7 +40,7 @@ export default function LoginForm() {
       // console.log(values);
       // console.log(password);
       axios.post(
-          "http://localhost:5000/login",
+          "https://medi-vhvn.herokuapp.com/login",
           { data: values }
         ).then(function(response){
           console.log(response);
