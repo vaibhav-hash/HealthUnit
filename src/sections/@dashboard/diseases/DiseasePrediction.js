@@ -7,6 +7,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import Prescription from "./Prescription";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 import axios from "axios";
 
 function createData(name, netmeds, mg, pharmeasy) {
@@ -28,12 +29,11 @@ function createData(name, netmeds, mg, pharmeasy) {
   }
 
 export default function DiseasePrediction() {
-    let myArray = [];
+  let myArray = [];
   const [rows,setRows]=useState(Array.from([
     createData('Medicine name', "netmeds", "1mg", "pharmeasy"),
   ]));
-  const [medicines,setMedicines]=useState([]);
-  
+    const [medicines,setMedicines]=useState([]);
     const { register, handleSubmit } = useForm();
     const [result, setResult] = useState("");
     const [resultPercentage, setResultPercentage] = useState("");
@@ -43,6 +43,7 @@ export default function DiseasePrediction() {
         setResult("Loading ...");
         setResultPercentage("");
         setResultSpecialist("");
+        let v;
         axios.post(
             // "http://localhost:5000/disease_prediction_using_symptoms",
             "https://medi-vhvn.herokuapp.com/disease_prediction_using_symptoms",
@@ -51,23 +52,29 @@ export default function DiseasePrediction() {
             console.log(response);
             myArray = response.data.split("@");
             setMedicines(myArray[3].split(", "));
-            console.log("these are medicines : " + medicines.length);
+            console.log("these are medicines : " + medicines);
             // temp edits
-            let v = []
+            v = []
             for (let i = 0; i < medicines.length; i++) {
                 v.push(createData(medicines[i], 'netmeds', 'mg', 'pharmeasy'));
             }
             //
             // setRows(Array.from([createData(medicines, 'netmeds', 'mg', 'pharmeasy'),]));
             setRows(v);
-            console.log(v);
+            console.log("these are rows",v);
             setResult(JSON.stringify(myArray[0]));
             setResultPercentage(JSON.stringify(myArray[1]));
             setResultSpecialist(JSON.stringify(myArray[2]));
         })
             .catch(function (error) {
                 console.log(error);
+            }).finally(() => {
+                console.log("i should go second");
+                // setRows(v);
+                // setMedicines(medicines);
+                console.log("these are medicines : " + medicines);
             });
+  
     };
     return (
         <div>

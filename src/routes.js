@@ -6,8 +6,8 @@ import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import DashboardApp from './pages/DashboardApp';
-import Products from './pages/Products';
-import Blog from './pages/Blog';
+// import Products from './pages/Products';
+// import Blog from './pages/Blog';
 import User from './pages/User';
 import NotFound from './pages/Page404';
 import Disease from './pages/Disease';
@@ -22,8 +22,8 @@ export default function Router() {
       children: [
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
-        { path: 'products', element: <Products /> },
-        { path: 'blog', element: <Blog /> },
+        // { path: 'products', element: <Products /> },
+        // { path: 'blog', element: <Blog /> },
         { path: 'disease', element: <Disease /> }
       ]
     },

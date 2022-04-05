@@ -1,6 +1,7 @@
 // material
 import { Box, Grid, Container, Typography } from '@mui/material';
 // components
+import { useCookies } from 'react-cookie';
 import Page from '../components/Page';
 import {
   AppTasks,
@@ -20,6 +21,8 @@ import {
 // ----------------------------------------------------------------------
 
 export default function DashboardApp() {
+  const [cookies, setCookie] = useCookies(['user']);
+  console.log("From Dashboar Calling cookies:",cookies);
   return (
     <Page title="Welcome To HealthCare">
       <Container maxWidth="xl">

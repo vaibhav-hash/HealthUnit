@@ -4,7 +4,7 @@ import 'simplebar/src/simplebar.css';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-
+import { CookiesProvider } from 'react-cookie';
 //
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -15,7 +15,9 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <HelmetProvider>
     <BrowserRouter>
+    <CookiesProvider>
       <App />
+    </CookiesProvider>
     </BrowserRouter>
   </HelmetProvider>,
   document.getElementById('root')

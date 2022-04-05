@@ -2,7 +2,8 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { useFormik, Form, FormikProvider } from 'formik';
-
+import { useCookies } from 'react-cookie';
+import Cookies from 'universal-cookie';
 import axios from 'axios';
 // material
 import {
@@ -21,6 +22,8 @@ import Iconify from '../../../components/Iconify';
 // ----------------------------------------------------------------------
 
 export default function LoginForm() {
+  const [cookies, setCookie] = useCookies(['user']);
+  // const cookies = new Cookies();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -44,6 +47,7 @@ export default function LoginForm() {
           { data: values }
         ).then(function(response){
           console.log(response);
+          setCookie('user', response, { path: '/' });
       }).catch(function(error){
           console.log(error)
       });

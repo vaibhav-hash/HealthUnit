@@ -5,7 +5,7 @@ import { Card, Typography } from '@mui/material';
 import { fShortenNumber } from '../../../utils/formatNumber';
 // component
 import Iconify from '../../../components/Iconify';
-
+import account from 'src/_mocks_/account';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Card)(({ theme }) => ({
@@ -34,7 +34,7 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const TOTAL = 714000;
+// const TOTAL = 'Name';
 
 export default function AppWeeklySales() {
   return (
@@ -42,9 +42,9 @@ export default function AppWeeklySales() {
       <IconWrapperStyle>
         <Iconify icon="ant-design:android-filled" width={24} height={24} />
       </IconWrapperStyle>
-      <Typography variant="h3">{fShortenNumber(TOTAL)}</Typography>
+      <Typography variant="h3">{'Name'}</Typography>
       <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
-        Weekly Sales
+        {account.displayName}
       </Typography>
     </RootStyle>
   );
